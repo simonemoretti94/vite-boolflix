@@ -3,13 +3,14 @@ import { state } from '../state.js';
 import axios from 'axios';
 
 import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
-  name: '*',
+  name: 'app',
   //emits: [''],
-  components: { //imported components 
+  components: {
     AppHeader,
-
+    AppMain,
   },
   data() { //variables, bool, array, objects and so on
 
@@ -47,6 +48,7 @@ export default {
 
 <template>
   <AppHeader></AppHeader>
+  <AppMain></AppMain>
 </template>
 
 <style scoped></style>
