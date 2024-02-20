@@ -36,7 +36,7 @@ export default {
         .get(state.urlAPI)
         .then((response) => {
           //console.log(response.data.results);
-          state.cards = response.data;
+          state.cards = response.data.results;
           console.log('cards: ', state.cards.results);
           state.loadingAPI = false;
         })

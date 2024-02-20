@@ -26,7 +26,7 @@ export default {
     mounted() {
         setTimeout(() => {
             state.FoundLoading = false;
-        }, 6000);
+        }, 4000);
     }
 }
 </script>
