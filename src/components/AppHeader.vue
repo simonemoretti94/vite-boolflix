@@ -56,6 +56,7 @@ header {
         }
 
         >input {
+            width: calc((100% / 12) * 3);
             padding: .3rem;
             border-radius: 8px;
             text-align: center;
@@ -64,5 +65,38 @@ header {
         }
     }
 
+}
+
+@media (max-width: 350px) {
+    header {
+        >.container {
+            >h2 {
+                width: calc((100% / 12) * 5);
+                font-size: 90%;
+            }
+
+            >input {
+                width: calc((100% / 12) * 5);
+                font-size: xx-small;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    header {
+        >.container {
+            >h2 {
+                width: calc((100% / 12) * 5);
+                font-size: 100%;
+
+            }
+
+            >input {
+                width: calc((100% / 12) * 5);
+                font-size: small;
+            }
+        }
+    }
 }
 </style>
