@@ -1,0 +1,68 @@
+<script>
+import { state } from '../../state.js';
+//import * from '';
+
+export default {
+    name: 'AppHeader',
+    //emits: [''],
+    components: { //imported components 
+        //*,
+
+    },
+    data() { //variables, bool, array, objects and so on
+
+        return {
+            state,
+        }
+    },
+    methods: { //functions; all kind of manipulations
+
+    },
+    computed() { // computed properties are cached based on their reactive dependencies
+        return //example this.value1 + this.value2;
+
+    },
+}
+</script>
+
+<template>
+    <header>
+        <div class="container">
+            <h2>boolflix</h2>
+            <input type="text" placeholder="Write here a movie">
+        </div>
+    </header>
+</template>
+
+<style scoped>
+header {
+    min-height: 60px;
+    background: linear-gradient(#232323, #181818, #141414, #181818, #232323);
+
+    & .container {
+        width: 90%;
+        height: 65px;
+        max-width: 1440px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        >h2 {
+            text-transform: uppercase;
+            color: var(--boolflix-header-writing);
+            font-weight: 500;
+            transform: skewX(-5deg);
+            filter: drop-shadow(0 0 3px rgba(128, 128, 128, 0.629));
+        }
+
+        >input {
+            padding: .3rem;
+            border-radius: 8px;
+            text-align: center;
+            text-transform: capitalize;
+            color: rgb(53, 53, 53);
+        }
+    }
+
+}
+</style>
