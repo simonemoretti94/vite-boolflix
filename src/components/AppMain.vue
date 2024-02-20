@@ -18,31 +18,49 @@ export default {
     methods: { //functions; all kind of manipulations
 
     },
-    computed() { // computed properties are cached based on their reactive dependencies
-        return //example this.value1 + this.value2;
-
+    computed: { // computed properties are cached based on their reactive dependencies
+        CardsFound() {
+            return 'Found ' + state.cards.length + ' movies';
+        }
     },
-    created() { //Run code before DOM's initial rendering
-        return //example this.value1 + this.value2;
-
-    },
-    mounted() { //Run code after DOM's initial rendering
-        /*axios
-        .get('')
-        .then((response) => {
-           console.log(response);
-        } )*/
-    },
-    watch: { //triggers a function whenever a reactive property changes
-
-    },
+    mounted() {
+        setTimeout(() => {
+            state.FoundLoading = false;
+        }, 6000);
+    }
 }
 </script>
 
 <template>
     <div>
-
+        <h6 v-if="state.FoundLoading" id="h6_info">{{ CardsFound }}</h6>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h6#h6_info {
+    margin: .3rem auto auto .5rem;
+    color: white;
+    font-weight: 500;
+    animation: h6_info;
+    animation-duration: 4s;
+}
+
+@keyframes h6_info {
+    0% {
+        font-size: xx-small;
+    }
+
+    50% {
+        font-size: small;
+    }
+
+    50% {
+        font-size: medium;
+    }
+
+    100% {
+        font-size: small;
+    }
+}
+</style>
