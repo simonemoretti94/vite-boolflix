@@ -1,12 +1,12 @@
 <script>
 import { state } from '../../state.js';
-//import * from '';
+import AppMainCards from './AppMainCards.vue';
 
 export default {
     name: 'AppMain',
     //emits: [''],
     components: { //imported components 
-        //*,
+        AppMainCards,
 
     },
     data() { //variables, bool, array, objects and so on
@@ -32,18 +32,21 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h6 v-if="state.FoundLoading" id="h6_info">{{ CardsFound }}</h6>
+    <main>
+        <div>
+            <h6 v-if="state.FoundLoading" id="h6_info">{{ CardsFound }}</h6>
 
-        <div class="container">
-            <div class="row">
-                <div id="loader">
-                    <i class='fa fa-refresh fa-spin' style="color: white;"></i>
-                    <p>Loading content, please wait</p>
+            <div class="container">
+                <div class="row">
+                    <div v-if="state.loadingAPI" id="loader">
+                        <i class='fa fa-refresh fa-spin' style="color: white;"></i>
+                        <p>Loading content, please wait</p>
+                    </div>
+                    <AppMainCards></AppMainCards>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <style scoped>

@@ -29,16 +29,21 @@ export default {
 
   },
   mounted() { //Run code after DOM's initial rendering
-    axios
-      .get(state.urlAPI)
-      .then((response) => {
-        //console.log(response.data.results);
-        state.cards = response.data.results;
-        console.log('cards: ', state.cards);
-      })
-      .catch((error) => {
-        console.error('axios error log: ', error);
-      })
+
+    setTimeout(() => {
+
+      axios
+        .get(state.urlAPI)
+        .then((response) => {
+          //console.log(response.data.results);
+          state.cards = response.data;
+          console.log('cards: ', state.cards.results);
+          state.loadingAPI = false;
+        })
+        .catch((error) => {
+          console.error('axios error log: ', error);
+        })
+    }, 2000);
   },
   watch: { //triggers a function whenever a reactive property changes
 
