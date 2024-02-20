@@ -34,6 +34,15 @@ export default {
 <template>
     <div>
         <h6 v-if="state.FoundLoading" id="h6_info">{{ CardsFound }}</h6>
+
+        <div class="container">
+            <div class="row">
+                <div id="loader">
+                    <i class='fa fa-refresh fa-spin' style="color: white;"></i>
+                    <p>Loading content, please wait</p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -44,6 +53,21 @@ h6#h6_info {
     font-weight: 500;
     animation: h6_info;
     animation-duration: 4s;
+}
+
+.container {
+    min-height: calc(100vh - 65px);
+}
+
+div#loader {
+    margin-top: 10rem;
+    display: flex;
+
+    >p {
+        color: white;
+        font-size: medium;
+        margin-left: .3rem;
+    }
 }
 
 @keyframes h6_info {

@@ -29,7 +29,7 @@ export default {
     <header>
         <div class="container">
             <h2>boolflix</h2>
-            <input type="text" placeholder="Write here a movie">
+            <input type="text" placeholder="Write here a movie and press enter">
         </div>
     </header>
 </template>
@@ -60,8 +60,8 @@ header {
             padding: .3rem;
             border-radius: 8px;
             text-align: center;
-            text-transform: capitalize;
             color: rgb(53, 53, 53);
+            font-size: medium;
         }
     }
 
