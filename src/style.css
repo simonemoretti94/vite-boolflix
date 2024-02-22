@@ -22,12 +22,12 @@ body {
     "slnt" 0;
 }
 
-.container {
+/* .container {
   width: 80%;
   max-width: 1176px;
   margin: auto;
   align-items: center;
-}
+} */
 
 .row {
   display: flex;

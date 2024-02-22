@@ -37,13 +37,11 @@ export default {
             <h6 v-if="state.FoundLoading" id="h6_info">{{ CardsFound }}</h6>
 
             <div class="container">
-                <div class="row">
-                    <div v-if="state.loadingAPI" id="loader">
-                        <i class='fa fa-refresh fa-spin' style="color: white;"></i>
-                        <p>Loading content, please wait</p>
-                    </div>
-                    <AppMainCards></AppMainCards>
+                <div v-if="state.loadingAPI" id="loader">
+                    <i class='fa fa-refresh fa-spin' style="color: white;"></i>
+                    <p>Loading content, please wait</p>
                 </div>
+                <AppMainCards></AppMainCards>
             </div>
         </div>
     </main>

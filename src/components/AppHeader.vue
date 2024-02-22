@@ -54,6 +54,7 @@ header {
         width: 90%;
         height: 65px;
         max-width: 1440px;
+        margin: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;

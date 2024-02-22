@@ -22,8 +22,8 @@ export default {
     <section>
         <div class="container">
             <div class="row">
-                <div class="card col-sm-6 col-md-4 col-lg-4">
-                    <!-- <img :src="state.cards[0].poster_path" :alt="state.cards[0].title"> -->
+                <div v-for="movie in state.cards" class="card col-sm-6 col-md-4 col-lg-4">
+                    <img :src="`https://image.tmdb.org/t/p/w342/` + movie.backdrop_path" :alt="movie.original_title">
                 </div>
             </div>
         </div>
@@ -31,6 +31,11 @@ export default {
 </template>
 
 <style scoped>
+.container {
+    width: 90%;
+    margin: 1rem auto auto auto;
+}
+
 .row {
     >.card {
         max-height: 400px;
