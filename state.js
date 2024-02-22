@@ -1,4 +1,5 @@
 import { reactive } from 'vue';
+import axios from 'axios';
 
 export const state = reactive({
     urlAPI: 'https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=ritorno+al+futuro',
@@ -8,7 +9,35 @@ export const state = reactive({
     FoundLoading: true, //return cards array length
     loadingAPI: true, //while true, show a loading icon
 
+    //AppHeader variables
+    selectedMovie: '',
+
+
+
+    //Methods
+    fetchData(url) {
+
+
+        axios
+            .get(url)
+            .then((response) => {
+                console.log('response.data.results: ', response.data.results);
+                response.data.results.forEach(element => {
+                    this.cards.push(element);
+                });
+                //this.cards = response.data.results;
+                this.loadingAPI = false;
+            })
+            .catch((error) => {
+                console.error('axios error log: ', error);
+            })
+
+        console.log('cards: :', this.cards);
+    },
+
 });
+
+
 
 //https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=ritorno+al+futuro
 

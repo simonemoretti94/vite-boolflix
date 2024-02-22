@@ -16,7 +16,17 @@ export default {
         }
     },
     methods: { //functions; all kind of manipulations
+        movieSearch() {
+            const url = `https://api.themoviedb.org/3/search/movie?api_key=${state.apiKey}&query=${state.selectedMovie}`;
 
+            if (selectedMovie === '') {
+                state.loadingAPI = true;
+            }
+            else {
+                //state.FoundLoading = true;
+                fetchData(url);
+            }
+        },
     },
     computed() { // computed properties are cached based on their reactive dependencies
         return //example this.value1 + this.value2;
@@ -29,7 +39,8 @@ export default {
     <header>
         <div class="container">
             <h2>boolflix</h2>
-            <input type="text" placeholder="Write here a movie and press enter">
+            <input type="text" placeholder="Write here a movie and press enter" v-model="state.selectedMovie"
+                @keyup="movieSearch()">
         </div>
     </header>
 </template>

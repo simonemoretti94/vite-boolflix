@@ -23,7 +23,7 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="card col-sm-6 col-md-4 col-lg-4">
-                    <img :src="state.cards[0].poster_path" :alt="state.cards[0].title">
+                    <!-- <img :src="state.cards[0].poster_path" :alt="state.cards[0].title"> -->
                 </div>
             </div>
         </div>
