@@ -75,7 +75,7 @@ export default {
             height: 300px;
             border: 1px solid white;
             padding: 1rem;
-            overflow-y: hidden;
+            overflow-y: scroll;
             display: flex;
             flex-direction: column;
             color: white;
