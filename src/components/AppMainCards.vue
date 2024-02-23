@@ -56,7 +56,7 @@ export default {
         >img {
             /* display: none; */
             position: relative;
-            z-index: 1;
+            /* z-index: 1; */
             max-width: 100%;
             height: 300px;
             filter: contrast(.9) saturate(1.1) sepia(.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.474));
@@ -65,21 +65,28 @@ export default {
 
 
         & #hide_content {
+            display: none;
+
             position: absolute;
-            /* display: none; */
             top: 0;
             left: 10;
-            background-color: black;
+            padding: 1rem;
+
             width: calc(100% - 2rem);
             max-width: 100%;
             height: 300px;
+
             border: 1px solid white;
-            padding: 1rem;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
             overflow-y: scroll;
+
             display: flex;
             flex-direction: column;
-            color: white;
 
+            background-color: black;
+            color: white;
+            filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.404));
 
             & span {
                 font-weight: bold;
@@ -112,11 +119,11 @@ export default {
 
     /* >.card:hover {
         >img {
-            display: none;
+            display: block;
         }
 
         & #hide_content {
-            display: block;
+            display: none;
         }
     } */
 
@@ -182,6 +189,16 @@ export default {
 @media screen and (min-width: 1024px) {
     .col-lg-3 {
         width: calc((100% / 12)* 3);
+    }
+
+    .card:hover {
+        & img {
+            display: none;
+        }
+
+        & #hide_content {
+            display: block;
+        }
     }
 }
 </style>
