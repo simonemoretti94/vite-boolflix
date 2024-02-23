@@ -12,8 +12,10 @@ export default {
 
         return { state, }
     },
-    methods: { //functions; all kind of manipulations
-
+    computed: {
+        rateStars(rate) {
+            return Math.ceil(rate);
+        }
     },
 }
 </script>
@@ -26,10 +28,9 @@ export default {
                     <div id="hide_content">
                         <p><span>Titolo: </span>{{ movie.title }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title }}</p>
-                        <!-- <p><span>Voto: </span>{{ movie.vote_average }}</p> -->
-                        <!-- <i class="fa-solid fa-star" style="color: #ffbd00;"></i> -->
-                        <p id="p_rate"><span>Voto: </span><i v-for="n in 5" class="fa-solid fa-star" style="color: #ffbd00;"
-                                :key="n"></i></p>
+                        <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
+                                class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
+                                    movie.vote_average }})</span></p>
                         <p><span>Overview: </span>{{ movie.overview }}</p>
                     </div>
                     <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title">
@@ -96,9 +97,12 @@ export default {
                     margin: auto .3rem auto 0;
                 }
 
-                display: flex;
-                flex-direction: row;
-                justify-content: start;
+                & span#span_rate {
+                    font-weight: 400;
+                    font-size: xx-small;
+                    margin: auto .1rem auto .1rem;
+                    color: rgb(255, 255, 255);
+                }
             }
         }
 
