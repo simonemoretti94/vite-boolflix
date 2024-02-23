@@ -110,7 +110,7 @@ export default {
 
     }
 
-    >.card:hover {
+    /* >.card:hover {
         >img {
             display: none;
         }
@@ -118,7 +118,7 @@ export default {
         & #hide_content {
             display: block;
         }
-    }
+    } */
 
 }
 
@@ -127,12 +127,54 @@ export default {
     .col-sm-6 {
         width: 50%;
     }
+
+    .card:hover {
+        & img {
+            display: block;
+        }
+
+        & #hide_content {
+            display: none;
+        }
+    }
 }
 
 /* md */
 @media screen and (min-width: 768px) {
     .col-md-4 {
         width: calc((100% / 12)* 4);
+    }
+
+    .card span {
+        font-weight: 600;
+        font-size: small;
+    }
+
+    #p_rate {
+        >span {
+            margin-right: .2rem;
+        }
+
+        & i {
+            margin: auto .1rem auto 0;
+        }
+
+        & span#span_rate {
+            font-weight: 300;
+            font-size: xx-small;
+            margin: auto .1rem auto .1rem;
+            color: rgb(255, 255, 255);
+        }
+    }
+
+    .card:hover {
+        & img {
+            display: none;
+        }
+
+        & #hide_content {
+            display: block;
+        }
     }
 }
 
