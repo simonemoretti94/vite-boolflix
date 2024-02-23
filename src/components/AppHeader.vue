@@ -16,15 +16,17 @@ export default {
         }
     },
     methods: { //functions; all kind of manipulations
-        movieSearch() {
+        movieSearch(string) {
+            console.log(string);
             const url = `https://api.themoviedb.org/3/search/movie?api_key=${state.apiKey}&query=${state.selectedMovie}`;
 
-            if (selectedMovie === '') {
+            if (state.selectedMovie === '' || state.selectedMovie.split(' ').length < 2) {
+                state.cards = [];
                 state.loadingAPI = true;
             }
             else {
                 //state.FoundLoading = true;
-                fetchData(url);
+                state.fetchData(url);
             }
         },
     },
@@ -40,7 +42,7 @@ export default {
         <div class="container">
             <h2>boolflix</h2>
             <input type="text" placeholder="Write here a movie and press enter" v-model="state.selectedMovie"
-                @keyup="movieSearch()">
+                @keyup="movieSearch($event.target.value)">
         </div>
     </header>
 </template>

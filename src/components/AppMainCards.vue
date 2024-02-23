@@ -23,13 +23,13 @@ export default {
         <div class="container">
             <div class="row">
                 <div v-for="movie in state.cards" class="card col-sm-6 col-md-4 col-lg-3">
-                    <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title">
-                    <!-- <div id="hide_content">
+                    <div id="hide_content">
                         <p><span>Titolo: </span>{{ movie.title }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title }}</p>
                         <p><span>Voto: </span>{{ movie.vote_average }}</p>
                         <p><span>Overview: </span>{{ movie.overview }}</p>
-                    </div> -->
+                    </div>
+                    <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title">
                 </div>
             </div>
         </div>
@@ -49,6 +49,8 @@ export default {
         margin-top: 1rem;
 
         >img {
+            /* display: none; */
+            position: relative;
             z-index: 1;
             max-width: 100%;
             height: 300px;
@@ -57,9 +59,9 @@ export default {
 
 
 
-        & div#hide_content {
+        & #hide_content {
             position: absolute;
-            display: none;
+            /* display: none; */
             top: 0;
             left: 0;
             background-color: black;
@@ -83,6 +85,16 @@ export default {
             }
         }
 
+    }
+
+    >.card:hover {
+        >img {
+            display: none;
+        }
+
+        & #hide_content {
+            display: block;
+        }
     }
 
 }

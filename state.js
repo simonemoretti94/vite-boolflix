@@ -19,11 +19,12 @@ export const state = reactive({
     //Methods
     fetchData(url) {
 
+        this.cards = [];
 
         axios
             .get(url)
             .then((response) => {
-                console.log('response.data.results: ', response.data.results);
+                //console.log('response.data.results: ', response.data.results);
                 response.data.results.forEach(element => {
 
                     //pushing API element
