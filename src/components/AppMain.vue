@@ -56,12 +56,13 @@ h6#h6_info {
     animation-duration: 4s;
 }
 
-/* .container {
+main {
     min-height: calc(100vh - 65px);
-} */
+}
 
 div#loader {
-    margin-top: 10rem;
+    width: 300px;
+    margin: 10rem auto auto calc((100% - 300px) / 2);
     display: flex;
 
     >p {
