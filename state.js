@@ -6,7 +6,7 @@ export const state = reactive({
     apiKey: '4529728a455fd554eacb1d7df41d13e5',
     cards: [],
 
-    posterImgPath: [],
+    //posterImgPath: [],
 
     FoundLoading: true, //return cards array length
     loadingAPI: true, //while true, show a loading icon
