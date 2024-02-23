@@ -21,7 +21,7 @@ export default {
     computed: { // computed properties are cached based on their reactive dependencies
         CardsFound() {
             return 'Found ' + state.cards.length + ' movies';
-        }
+        },
     },
     mounted() {
         setTimeout(() => {
