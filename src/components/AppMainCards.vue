@@ -51,6 +51,7 @@ export default {
         position: relative;
         max-height: 300px;
         margin-top: 1rem;
+        padding: 0 1rem;
 
         >img {
             /* display: none; */
@@ -67,8 +68,9 @@ export default {
             position: absolute;
             /* display: none; */
             top: 0;
-            left: 0;
+            left: 10;
             background-color: black;
+            width: calc(100% - 2rem);
             max-width: 100%;
             height: 300px;
             border: 1px solid white;
@@ -123,7 +125,7 @@ export default {
 /* sm */
 @media screen and (min-width: 568px) {
     .col-sm-6 {
-        width: 50% -.5rem;
+        width: 50%;
     }
 }
 

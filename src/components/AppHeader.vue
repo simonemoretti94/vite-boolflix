@@ -17,10 +17,10 @@ export default {
     },
     methods: { //functions; all kind of manipulations
         movieSearch(string) {
-            console.log(string);
+            //console.log(string);
             const url = `https://api.themoviedb.org/3/search/movie?api_key=${state.apiKey}&query=${state.selectedMovie}`;
 
-            if (state.selectedMovie === '' || state.selectedMovie.split(' ').length < 2) {
+            if (state.selectedMovie === '' || state.selectedMovie.length < 3) {
                 state.cards = [];
                 state.loadingAPI = true;
             }
