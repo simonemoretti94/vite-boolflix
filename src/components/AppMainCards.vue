@@ -29,6 +29,9 @@ export default {
                 case ('de'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/germany.png" alt="germany"/>`;
                 }
+                case ('fr'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/france.png" alt="france"/>`;
+                }
                 case ('ja'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/japan.png" alt="japan"/>`;
                 }
@@ -57,7 +60,8 @@ export default {
                         <p><span>Titolo: </span>{{ movie.title }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title }}</p>
                         <p><span>Lingua originale: </span><span id="language_icon"
-                                v-html="flagIcon(movie.original_language)"></span></p>
+                                v-html="flagIcon(movie.original_language)"></span> {{
+                                    movie.original_language }}</p>
                         <!-- <span v-html="flagIcon(movie.original_language)"></span> -->
                         <!-- {{ flagIcon(movie.original_language) }} -->
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
@@ -128,13 +132,6 @@ export default {
             & p {
                 font-size: small;
             }
-
-            /* & span#language_icon {
-                & img {
-                    width: 10px;
-                    aspect-ratio: 1 / 1;
-                }
-            } */
 
             & #p_rate {
                 margin-bottom: .5rem;
