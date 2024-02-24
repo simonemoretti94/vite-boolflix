@@ -28,6 +28,7 @@ export default {
                     <div id="hide_content">
                         <p><span>Titolo: </span>{{ movie.title }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title }}</p>
+                        <p><span>Lingua originale: </span>{{ movie.original_language }}</p>
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
                                 class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
                                     movie.vote_average }})</span></p>
