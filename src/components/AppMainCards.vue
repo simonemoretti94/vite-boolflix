@@ -12,10 +12,32 @@ export default {
 
         return { state, }
     },
-    computed: {
-        rateStars(rate) {
-            return Math.ceil(rate);
-        }
+    methods: {
+        flagIcon(country) {
+            //return `<link type="image/png" sizes="16x16" rel="icon" href=".../icons8-italy-16.png">`;
+
+            switch (country) {
+                case ('en'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/great-britain.png" alt="great-britain"/>`;
+                }
+                case ('es'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/spain.png" alt="spain"/>`;
+                }
+                case ('it'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/italy.png" alt="italy"/>`;
+                }
+                case ('de'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/germany.png" alt="germany"/>`;
+                }
+                case ('ja'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/japan.png" alt="japan"/>`;
+                }
+                case ('hi'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/india.png" alt="india"/>`;
+                }
+            }
+
+        },
     },
 }
 </script>
@@ -28,7 +50,10 @@ export default {
                     <div id="hide_content">
                         <p><span>Titolo: </span>{{ movie.title }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title }}</p>
-                        <p><span>Lingua originale: </span>{{ movie.original_language }}</p>
+                        <p><span>Lingua originale: </span><span id="language_icon"
+                                v-html="flagIcon(movie.original_language)"></span></p>
+                        <!-- <span v-html="flagIcon(movie.original_language)"></span> -->
+                        <!-- {{ flagIcon(movie.original_language) }} -->
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
                                 class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
                                     movie.vote_average }})</span></p>
@@ -97,6 +122,13 @@ export default {
             & p {
                 font-size: small;
             }
+
+            /* & span#language_icon {
+                & img {
+                    width: 10px;
+                    aspect-ratio: 1 / 1;
+                }
+            } */
 
             & #p_rate {
                 margin-bottom: .5rem;
