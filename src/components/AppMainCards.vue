@@ -31,7 +31,7 @@ export default {
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
                                 class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
                                     movie.vote_average }})</span></p>
-                        <p><span>Overview: </span>{{ movie.overview }}</p>
+                        <p id="p_overview"><span>Overview: </span>{{ movie.overview }}</p>
                     </div>
                     <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title">
                 </div>
@@ -79,7 +79,7 @@ export default {
             border: 1px solid white;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
-            overflow-y: scroll;
+            /* overflow-y: scroll; */
 
             display: flex;
             flex-direction: column;
@@ -98,6 +98,8 @@ export default {
             }
 
             & #p_rate {
+                margin-bottom: .5rem;
+
                 >span {
                     margin-right: .5rem;
                 }
@@ -112,6 +114,13 @@ export default {
                     margin: auto .1rem auto .1rem;
                     color: rgb(255, 255, 255);
                 }
+            }
+
+            & #p_overview {
+                border: .5px solid white;
+                padding: .1rem;
+                border-radius: 8px;
+                overflow-y: scroll;
             }
         }
 
