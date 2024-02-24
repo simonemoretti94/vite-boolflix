@@ -35,6 +35,12 @@ export default {
                 case ('hi'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/india.png" alt="india"/>`;
                 }
+                case ('ru'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/russia.png" alt="russia"/>`;
+                }
+                case ('zh'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/china.png" alt="china"/>`;
+                }
             }
 
         },
@@ -56,7 +62,7 @@ export default {
                         <!-- {{ flagIcon(movie.original_language) }} -->
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
                                 class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
-                                    movie.vote_average }})</span></p>
+                                    movie.vote_average.toFixed(1) }})</span></p>
                         <p id="p_overview"><span>Overview: </span>{{ movie.overview }}</p>
                     </div>
                     <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title">
