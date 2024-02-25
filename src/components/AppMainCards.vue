@@ -17,6 +17,9 @@ export default {
             //return `<link type="image/png" sizes="16x16" rel="icon" href=".../icons8-italy-16.png">`;
 
             switch (country) {
+                case ('bn'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
+                }
                 case ('da'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/denmark.png" alt="denmark"/>`;
                 }
