@@ -1,5 +1,6 @@
 <script>
 import { state } from '../../state.js';
+import { languages } from '../../languages.js';
 
 export default {
     name: 'AppMainCards',
@@ -10,20 +11,23 @@ export default {
     },
     data() { //variables, bool, array, objects and so on
 
-        return { state, }
+        return { state, languages }
     },
     methods: {
-        imgRender(path) {
-            const url = `https://image.tmdb.org/t/p/w500/${path}`;
-
-            return `<img src="${url}" alt="${path}">`;
-
-        },
         flagIcon(country) {
+            console.log('country log: ', country, ' typeof: ', typeof (country));
 
             if (country === '') {
                 return `<span>Flag not available</span>`
             }
+            // else {
+            //     const tempStr = String(country);
+            //     const tempString = tempStr.toUpperCase();
+            //     const tempCountry = languages.lang.tempString.toLowerCase();
+            //     return languages.lang.tempString`<img width="15" height="15" src="https://img.icons8.com/color/15/${tempCountry}.png" alt="${tempCountry}/>`;
+            //     // return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
+
+            // }
             else {
                 switch (country) {
                     case ('bn'): {
