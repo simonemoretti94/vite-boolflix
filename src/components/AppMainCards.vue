@@ -32,46 +32,6 @@ export default {
                 return `<img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`;
                 // return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
             }
-            // else {
-            //     switch (country) {
-            //         case ('bn'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
-            //         }
-            //         case ('da'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/denmark.png" alt="denmark"/>`;
-            //         }
-            //         case ('de'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/germany.png" alt="germany"/>`;
-            //         }
-            //         case ('en'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/great-britain.png" alt="great-britain"/>`;
-            //         }
-            //         case ('es'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/spain.png" alt="spain"/>`;
-            //         }
-            //         case ('fr'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/france.png" alt="france"/>`;
-            //         }
-            //         case ('it'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/italy.png" alt="italy"/>`;
-            //         }
-            //         case ('ja'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/japan.png" alt="japan"/>`;
-            //         }
-            //         case ('hi'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/india.png" alt="india"/>`;
-            //         }
-            //         case ('no'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/norway.png" alt="norway"/>`;
-            //         }
-            //         case ('ru'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/russia.png" alt="russia"/>`;
-            //         }
-            //         case ('zh'): {
-            //             return `<img width="15" height="15" src="https://img.icons8.com/color/15/china.png" alt="china"/>`;
-            //         }
-            //     }
-            // }
 
         },
     },
@@ -84,14 +44,16 @@ export default {
             <div class="row">
                 <div v-for="movie in state.cards" class="card col-sm-6 col-md-4 col-lg-3">
                     <div id="hide_content">
-                        <p><span>Titolo: </span>{{ movie.title }}</p>
-                        <p><span>Titolo originale: </span>{{ movie.original_title }}</p>
+                        <p><span>Titolo: </span>{{ movie.title ? movie.title : 'text not available' }}</p>
+                        <p><span>Titolo originale: </span>{{ movie.original_title ? movie.original_title : 'text\
+                                                    notavailable' }}</p>
                         <p><span>Lingua originale: </span><span id="language_icon"
                                 v-html="flagIcon(movie.original_language)"></span> {{
-                                    movie.original_language }}</p>
+                                    movie.original_language ? movie.original_language : 'text not available' }}</p>
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
                                 class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
-                                    movie.vote_average.toFixed(1) }})</span></p>
+                                    movie.vote_average ?
+                                    movie.vote_average.toFixed(1) : 'no data' }})</span></p>
                         <p id="p_overview"><span>Overview: </span>{{ movie.overview ? movie.overview : 'text not available'
                         }}</p>
                     </div>
