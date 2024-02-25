@@ -13,45 +13,55 @@ export default {
         return { state, }
     },
     methods: {
-        flagIcon(country) {
-            //return `<link type="image/png" sizes="16x16" rel="icon" href=".../icons8-italy-16.png">`;
+        imgRender(path) {
+            const url = `https://image.tmdb.org/t/p/w500/${path}`;
 
-            switch (country) {
-                case ('bn'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
-                }
-                case ('da'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/denmark.png" alt="denmark"/>`;
-                }
-                case ('de'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/germany.png" alt="germany"/>`;
-                }
-                case ('en'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/great-britain.png" alt="great-britain"/>`;
-                }
-                case ('es'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/spain.png" alt="spain"/>`;
-                }
-                case ('fr'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/france.png" alt="france"/>`;
-                }
-                case ('it'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/italy.png" alt="italy"/>`;
-                }
-                case ('ja'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/japan.png" alt="japan"/>`;
-                }
-                case ('hi'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/india.png" alt="india"/>`;
-                }
-                case ('no'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/norway.png" alt="norway"/>`;
-                }
-                case ('ru'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/russia.png" alt="russia"/>`;
-                }
-                case ('zh'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/china.png" alt="china"/>`;
+            return `<img src="${url}" alt="${path}">`;
+
+        },
+        flagIcon(country) {
+
+            if (country === '') {
+                return `<span>Flag not available</span>`
+            }
+            else {
+                switch (country) {
+                    case ('bn'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
+                    }
+                    case ('da'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/denmark.png" alt="denmark"/>`;
+                    }
+                    case ('de'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/germany.png" alt="germany"/>`;
+                    }
+                    case ('en'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/great-britain.png" alt="great-britain"/>`;
+                    }
+                    case ('es'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/spain.png" alt="spain"/>`;
+                    }
+                    case ('fr'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/france.png" alt="france"/>`;
+                    }
+                    case ('it'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/italy.png" alt="italy"/>`;
+                    }
+                    case ('ja'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/japan.png" alt="japan"/>`;
+                    }
+                    case ('hi'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/india.png" alt="india"/>`;
+                    }
+                    case ('no'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/norway.png" alt="norway"/>`;
+                    }
+                    case ('ru'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/russia.png" alt="russia"/>`;
+                    }
+                    case ('zh'): {
+                        return `<img width="15" height="15" src="https://img.icons8.com/color/15/china.png" alt="china"/>`;
+                    }
                 }
             }
 
@@ -71,14 +81,16 @@ export default {
                         <p><span>Lingua originale: </span><span id="language_icon"
                                 v-html="flagIcon(movie.original_language)"></span> {{
                                     movie.original_language }}</p>
-                        <!-- <span v-html="flagIcon(movie.original_language)"></span> -->
-                        <!-- {{ flagIcon(movie.original_language) }} -->
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
                                 class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
                                     movie.vote_average.toFixed(1) }})</span></p>
                         <p id="p_overview"><span>Overview: </span>{{ movie.overview }}</p>
                     </div>
-                    <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title">
+                    <!-- <span v-html="imgRender(movie.backdrop_path)"></span> -->
+                    <!-- <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title"> -->
+                    <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg`"
+                        :alt="movie.original_title">
+
                 </div>
             </div>
         </div>
@@ -86,6 +98,10 @@ export default {
 </template>
 
 <style scoped>
+.d-none {
+    display: none;
+}
+
 .container {
     width: 90%;
     margin: 1rem auto auto auto;
@@ -99,9 +115,7 @@ export default {
         padding: 0 1rem;
 
         >img {
-            /* display: none; */
             position: relative;
-            /* z-index: 1; */
             max-width: 100%;
             height: 300px;
             filter: contrast(.9) saturate(1.1) sepia(.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.474));
