@@ -23,17 +23,13 @@ export default {
                 let tempStr = String(country);
                 tempStr = tempStr.toUpperCase();
                 tempStr = languages.lang[tempStr];
-                if (typeof tempStr === 'string') {
-                    tempStr = tempStr.toLowerCase();
-                    tempStr = tempStr.split(' ');
-                    tempStr = tempStr.join('-');
-                    console.log('tempStr log: ', tempStr, ' typeof: ', typeof (tempStr));
-                    console.log(`flag: <img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}/>`,);
+                tempStr = tempStr.toLowerCase();
+                tempStr = tempStr.split(' ');
+                tempStr = tempStr.join('-');
+                console.log('tempStr log: ', tempStr, ' typeof: ', typeof (tempStr));
+                console.log(`flag: <img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`,);
 
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}/>`;
-                } else {
-                    return `<span>Flag not available</span>`
-                }
+                return `<img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`;
                 // return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
             }
             // else {
