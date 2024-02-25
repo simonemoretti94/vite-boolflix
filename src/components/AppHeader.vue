@@ -18,7 +18,8 @@ export default {
     methods: { //functions; all kind of manipulations
         movieSearch(string) {
             //console.log(string);
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=${state.apiKey}&query=${state.selectedMovie}`;
+            const url1 = `https://api.themoviedb.org/3/search/movie?api_key=${state.apiKey}&query=${state.selectedMovie}`;
+            const url2 = `https://api.themoviedb.org/3/search/tv?api_key=${state.apiKey}&query=${state.selectedMovie}`;
 
             if (state.selectedMovie === '' || state.selectedMovie.length < 3) {
                 state.cards = [];
@@ -26,8 +27,13 @@ export default {
             }
             else {
                 //state.FoundLoading = true;
-                state.fetchData(url);
+                state.fetchData(url1);
+                state.fetchData(url2);
             }
+
+            setTimeout(() => {
+                console.log('movie search: ', state.cards);
+            }, 3000)
         },
     },
     computed() { // computed properties are cached based on their reactive dependencies
