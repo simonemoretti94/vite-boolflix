@@ -17,26 +17,32 @@ export default {
             //return `<link type="image/png" sizes="16x16" rel="icon" href=".../icons8-italy-16.png">`;
 
             switch (country) {
+                case ('da'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/denmark.png" alt="denmark"/>`;
+                }
+                case ('de'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/germany.png" alt="germany"/>`;
+                }
                 case ('en'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/great-britain.png" alt="great-britain"/>`;
                 }
                 case ('es'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/spain.png" alt="spain"/>`;
                 }
-                case ('it'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/italy.png" alt="italy"/>`;
-                }
-                case ('de'): {
-                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/germany.png" alt="germany"/>`;
-                }
                 case ('fr'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/france.png" alt="france"/>`;
+                }
+                case ('it'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/italy.png" alt="italy"/>`;
                 }
                 case ('ja'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/japan.png" alt="japan"/>`;
                 }
                 case ('hi'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/india.png" alt="india"/>`;
+                }
+                case ('no'): {
+                    return `<img width="15" height="15" src="https://img.icons8.com/color/15/norway.png" alt="norway"/>`;
                 }
                 case ('ru'): {
                     return `<img width="15" height="15" src="https://img.icons8.com/color/15/russia.png" alt="russia"/>`;

@@ -43,6 +43,7 @@ export default {
             <h2>boolflix</h2>
             <input type="text" placeholder="Write here a movie and press enter" v-model="state.selectedMovie"
                 @keyup="movieSearch($event.target.value)">
+            <i id="show_icon" class="fa-solid fa-plus-minus" style="color: #ffffff;"></i>
         </div>
     </header>
 </template>
@@ -58,6 +59,7 @@ header {
         max-width: 1440px;
         margin: auto;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
 
@@ -69,13 +71,18 @@ header {
             filter: drop-shadow(0 0 3px rgba(128, 128, 128, 0.629));
         }
 
-        >input {
+        & input {
             width: calc((100% / 12) * 3);
+            /* width: 100%; */
             padding: .3rem;
             border-radius: 8px;
             text-align: center;
             color: rgb(53, 53, 53);
             font-size: medium;
+        }
+
+        & i#show_icon {
+            display: none;
         }
     }
 
@@ -85,13 +92,8 @@ header {
     header {
         >.container {
             >h2 {
-                width: calc((100% / 12) * 5);
+                /* width: calc((100% / 12) * 5); */
                 font-size: 90%;
-            }
-
-            >input {
-                width: calc((100% / 12) * 5);
-                font-size: xx-small;
             }
         }
     }
@@ -106,10 +108,37 @@ header {
 
             }
 
-            >input {
-                width: calc((100% / 12) * 5);
-                font-size: small;
+            & input {
+                display: none;
+                /* width: calc((100% / 12) * 5);
+                font-size: small; */
             }
+
+            & i#show_icon {
+                display: block;
+            }
+        }
+    }
+
+    i#show_icon:active {
+        display: none;
+
+        & header {
+            & .container {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                >h2 {
+                    color: blue;
+                }
+
+                & input {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
         }
     }
 }
