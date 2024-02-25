@@ -88,13 +88,13 @@ export default {
                         <p id="p_rate"><span>Voto: </span><i v-for="n in (Math.ceil(movie.vote_average))"
                                 class="fa-solid fa-star" style="color: #ffbd00;" :key="n"></i><span id="span_rate">({{
                                     movie.vote_average.toFixed(1) }})</span></p>
-                        <p id="p_overview"><span>Overview: </span>{{ movie.overview }}</p>
+                        <p id="p_overview"><span>Overview: </span>{{ movie.overview ? movie.overview : 'text not available'
+                        }}</p>
                     </div>
                     <!-- <span v-html="imgRender(movie.backdrop_path)"></span> -->
-                    <!-- <img :src="`https://image.tmdb.org/t/p/w500/` + movie.backdrop_path" :alt="movie.original_title"> -->
-                    <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg`"
+                    <!-- <img :src="imgRender(movie.backdrop_path)" :alt="movie.original_title"> -->
+                    <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `./src/assets/img/picture-not-available.jpg`"
                         :alt="movie.original_title">
-
                 </div>
             </div>
         </div>
