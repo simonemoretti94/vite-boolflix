@@ -119,16 +119,13 @@ export default {
             height: 300px;
 
             border: 1px solid white;
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-            /* overflow-y: scroll; */
+            border-radius: 8px;
 
             display: flex;
             flex-direction: column;
 
             background-color: black;
             color: white;
-            filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.404));
 
             & span {
                 font-weight: bold;
@@ -147,7 +144,7 @@ export default {
                 }
 
                 & i {
-                    margin: auto .3rem auto 0;
+                    margin: auto .2rem auto 0;
                 }
 
                 & span#span_rate {
@@ -160,7 +157,7 @@ export default {
 
             & #p_overview {
                 border: .5px solid white;
-                padding: .1rem;
+                padding: .2rem;
                 border-radius: 8px;
                 overflow-y: scroll;
             }
