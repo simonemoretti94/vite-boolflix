@@ -39,6 +39,7 @@ export const languages = reactive({
         "BF": "Burkina Faso",
         "BI": "Burundi",
         "KH": "Cambodia",
+        "JA": "Japan",
         "CM": "Cameroon",
         "CA": "Canada",
         "CV": "Cape Verde",
@@ -52,6 +53,7 @@ export const languages = reactive({
         "CO": "Colombia",
         "KM": "Comoros",
         "CG": "Congo",
+        "HI": "India",
         "CD": "Congo, Democratic Republic",
         "CK": "Cook Islands",
         "CR": "Costa Rica",
@@ -234,6 +236,7 @@ export const languages = reactive({
         "UA": "Ukraine",
         "AE": "United Arab Emirates",
         "GB": "United Kingdom",
+        "EN": "Great Britain",
         "US": "United States",
         "UM": "United States Outlying Islands",
         "UY": "Uruguay",
@@ -247,6 +250,7 @@ export const languages = reactive({
         "EH": "Western Sahara",
         "YE": "Yemen",
         "ZM": "Zambia",
-        "ZW": "Zimbabwe"
+        "ZW": "Zimbabwe",
+        "ZH": "China",
     }
 });
