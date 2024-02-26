@@ -30,10 +30,19 @@ export default {
                 console.log(`flag: <img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`,);
 
                 return `<img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`;
-                // return `<img width="15" height="15" src="https://img.icons8.com/color/15/bangladesh.png" alt="bangladesh"/>`;
             }
-
         },
+        h6slice(title) {
+            if (title === '' || title === undefined) {
+                return 'no data available';
+            }
+            else if (title.length <= 50) {
+                return title;
+            }
+            else {
+                return title.slice(0, 30) + '...';
+            }
+        }
     },
 }
 </script>
@@ -46,7 +55,7 @@ export default {
                     <div id="hide_content">
                         <p><span>Titolo: </span>{{ movie.title ? movie.title : 'text not available' }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title ? movie.original_title : 'text\
-                                                    notavailable' }}</p>
+                                                    not available' }}</p>
                         <p><span>Lingua originale: </span><span id="language_icon"
                                 v-html="flagIcon(movie.original_language)"></span> {{
                                     movie.original_language ? movie.original_language : 'text not available' }}</p>
@@ -57,10 +66,10 @@ export default {
                         <p id="p_overview"><span>Overview: </span>{{ movie.overview ? movie.overview : 'text not available'
                         }}</p>
                     </div>
-                    <!-- <span v-html="imgRender(movie.backdrop_path)"></span> -->
-                    <!-- <img :src="imgRender(movie.backdrop_path)" :alt="movie.original_title"> -->
                     <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `./src/assets/img/picture-not-available.jpg`"
                         :alt="movie.original_title">
+                    <h6>{{ h6slice(movie.title) }}</h6>
+                    <!-- <h6>{{ movie.title.slice(0, 30) }}</h6> -->
                 </div>
             </div>
         </div>
@@ -89,6 +98,15 @@ export default {
             max-width: 100%;
             height: 300px;
             filter: contrast(.9) saturate(1.1) sepia(.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.474));
+        }
+
+        & h6 {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 15;
+            color: rgb(17, 17, 17);
+            background-color: rgba(128, 128, 128, 0.571);
         }
 
 
@@ -151,17 +169,6 @@ export default {
         }
 
     }
-
-    /* >.card:hover {
-        >img {
-            display: block;
-        }
-
-        & #hide_content {
-            display: none;
-        }
-    } */
-
 }
 
 /* sm */
@@ -171,7 +178,9 @@ export default {
     }
 
     .card:hover {
-        & img {
+
+        & img,
+        h6 {
             display: block;
         }
 
@@ -210,7 +219,9 @@ export default {
     }
 
     .card:hover {
-        & img {
+
+        & img,
+        h6 {
             display: none;
         }
 
@@ -227,7 +238,9 @@ export default {
     }
 
     .card:hover {
-        & img {
+
+        & img,
+        h6 {
             display: none;
         }
 
