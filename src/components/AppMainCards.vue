@@ -26,8 +26,8 @@ export default {
                 tempStr = tempStr.toLowerCase();
                 tempStr = tempStr.split(' ');
                 tempStr = tempStr.join('-');
-                console.log('tempStr log: ', tempStr, ' typeof: ', typeof (tempStr));
-                console.log(`flag: <img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`,);
+                //console.log('tempStr log: ', tempStr, ' typeof: ', typeof (tempStr));
+                //console.log(`flag: <img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`,);
 
                 return `<img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`;
             }
@@ -42,6 +42,17 @@ export default {
             else {
                 return title.slice(0, 30) + '...';
             }
+        },
+        titleEvaluating(movie) {
+            if (movie.title === '' || movie.title === undefined) {
+                return movie.original_name;
+            }
+            else if (movie.original_name === '' || movie.original_name === undefined) {
+                return movie.title
+            }
+            else {
+                return 'title not available';
+            }
         }
     },
 }
@@ -53,7 +64,7 @@ export default {
             <div class="row">
                 <div v-for="movie in state.cards" class="card col-sm-6 col-md-4 col-lg-3">
                     <div id="hide_content">
-                        <p><span>Titolo: </span>{{ movie.title ? movie.title : 'text not available' }}</p>
+                        <p><span>Titolo: </span>{{ titleEvaluating(movie) }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title ? movie.original_title : 'text\
                                                     not available' }}</p>
                         <p><span>Lingua originale: </span><span id="language_icon"
@@ -68,8 +79,8 @@ export default {
                     </div>
                     <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `./src/assets/img/picture-not-available.jpg`"
                         :alt="movie.original_title">
-                    <h6>{{ h6slice(movie.title) }}</h6>
-                    <!-- <h6>{{ movie.title.slice(0, 30) }}</h6> -->
+                    <!-- <h6>{{ h6slice(movie.title) }}</h6> -->
+                    <h6>{{ h6slice(titleEvaluating(movie)) }}</h6>
                 </div>
             </div>
         </div>
@@ -107,6 +118,11 @@ export default {
             left: 15;
             color: rgb(17, 17, 17);
             background-color: rgba(128, 128, 128, 0.571);
+
+            padding: .1rem;
+            border: solid .5px rgba(128, 128, 128, 0);
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
 
 
