@@ -1,6 +1,6 @@
 <script>
-import { state } from '../../state.js';
-import { languages } from '../../languages.js';
+import { state } from '../state';
+import { languages } from '../languages';
 
 export default {
     name: 'AppMainCards',

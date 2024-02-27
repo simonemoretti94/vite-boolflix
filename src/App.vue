@@ -1,6 +1,5 @@
 <script>
-import { state } from '../state.js';
-//import axios from 'axios';
+import { state } from './state';
 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';

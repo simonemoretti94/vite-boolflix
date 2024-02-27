@@ -1,6 +1,5 @@
 <script>
-import { state } from '../../state.js';
-//import * from '';
+import { state } from '../state';
 
 export default {
     name: 'AppHeader',

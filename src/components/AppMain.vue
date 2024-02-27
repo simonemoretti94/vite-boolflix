@@ -1,5 +1,5 @@
 <script>
-import { state } from '../../state.js';
+import { state } from '../state';
 import AppMainCards from './AppMainCards.vue';
 
 export default {
