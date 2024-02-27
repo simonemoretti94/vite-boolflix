@@ -48,11 +48,9 @@ export default {
         },
         imgRender(movie) {
             if (movie.backdrop_path) {
-                //console.log('img path: https://image.tmdb.org/t/p/w500/', movie.backdrop_path, ' ', movie.original_title);
-                return `https://image.tmdb.org/t/p/w500` + movie.backdrop_path;
+                return `https://image.tmdb.org/t/p/w780` + movie.backdrop_path;
             }
             else if (movie.poster_path) {
-                //console.log('img path: https://image.tmdb.org/t/p/w500/', movie.poster_path, ' ', movie.original_title);
                 return `https://image.tmdb.org/t/p/w780` + movie.poster_path;
             }
             else {
