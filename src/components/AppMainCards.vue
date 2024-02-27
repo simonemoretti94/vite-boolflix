@@ -45,6 +45,20 @@ export default {
             else {
                 return 'title not available';
             }
+        },
+        imgRender(movie) {
+            if (movie.backdrop_path) {
+                //console.log('img path: https://image.tmdb.org/t/p/w500/', movie.backdrop_path, ' ', movie.original_title);
+                return `https://image.tmdb.org/t/p/w500` + movie.backdrop_path;
+            }
+            else if (movie.poster_path) {
+                //console.log('img path: https://image.tmdb.org/t/p/w500/', movie.poster_path, ' ', movie.original_title);
+                return `https://image.tmdb.org/t/p/w780` + movie.poster_path;
+            }
+            else {
+                console.log('img path not available ', movie.original_title);
+                return `./src/assets/img/picture-not-available.jpg`;
+            }
         }
     },
 }
@@ -69,8 +83,9 @@ export default {
                         <p id="p_overview"><span>Overview: </span>{{ movie.overview ? movie.overview : 'text not available'
                         }}</p>
                     </div>
-                    <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `./src/assets/img/picture-not-available.jpg`"
-                        :alt="movie.original_title">
+                    <img :src="imgRender(movie)" :alt="movie.original_title ? movie.original_title : movie.original_name">
+                    <!-- <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `./src/assets/img/picture-not-available.jpg`"
+                        :alt="movie.original_title"> -->
                     <h6>{{ h6slice(titleEvaluating(movie)) }}</h6>
                 </div>
             </div>
@@ -98,6 +113,7 @@ export default {
         >img {
             position: relative;
             max-width: 100%;
+            width: 100%;
             height: 300px;
             filter: contrast(.9) saturate(1.1) sepia(.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.474));
         }

@@ -26,7 +26,7 @@ export default {
             }
 
             setTimeout(() => {
-                console.log('movie search: ', state.cards);
+                //console.log('movie search: ', state.cards);
             }, 3000)
         },
     },
