@@ -36,11 +36,11 @@ export default {
             }
         },
         titleEvaluating(movie) {
-            if (movie.title === '' || movie.title === undefined) {
-                return movie.original_name;
+            if (movie.title) {
+                return movie.title;
             }
-            else if (movie.original_name === '' || movie.original_name === undefined) {
-                return movie.title
+            else if (movie.original_name) {
+                return movie.original_name;
             }
             else {
                 return 'title not available';
