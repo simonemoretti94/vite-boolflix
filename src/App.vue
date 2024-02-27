@@ -6,19 +6,17 @@ import AppMain from './components/AppMain.vue';
 
 export default {
   name: 'app',
-  //emits: [''],
   components: {
     AppHeader,
     AppMain,
   },
-  data() { //variables, bool, array, objects and so on
-
+  data() {
     return {
       state,
     }
   },
 
-  mounted() { //Run code after DOM's initial rendering
+  mounted() {
 
     state.fetchData(state.urlAPI);
 

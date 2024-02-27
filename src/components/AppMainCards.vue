@@ -4,13 +4,7 @@ import { languages } from '../languages';
 
 export default {
     name: 'AppMainCards',
-    //emits: [''],
-    components: { //imported components 
-        //*,
-
-    },
-    data() { //variables, bool, array, objects and so on
-
+    data() {
         return { state, languages }
     },
     methods: {
@@ -26,8 +20,6 @@ export default {
                 tempStr = tempStr.toLowerCase();
                 tempStr = tempStr.split(' ');
                 tempStr = tempStr.join('-');
-                //console.log('tempStr log: ', tempStr, ' typeof: ', typeof (tempStr));
-                //console.log(`flag: <img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`,);
 
                 return `<img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`;
             }
@@ -79,7 +71,6 @@ export default {
                     </div>
                     <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `./src/assets/img/picture-not-available.jpg`"
                         :alt="movie.original_title">
-                    <!-- <h6>{{ h6slice(movie.title) }}</h6> -->
                     <h6>{{ h6slice(titleEvaluating(movie)) }}</h6>
                 </div>
             </div>

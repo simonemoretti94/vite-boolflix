@@ -4,21 +4,16 @@ import AppMainCards from './AppMainCards.vue';
 
 export default {
     name: 'AppMain',
-    //emits: [''],
-    components: { //imported components 
+    components: {
         AppMainCards,
 
     },
-    data() { //variables, bool, array, objects and so on
-
+    data() {
         return {
             state,
         }
     },
-    methods: { //functions; all kind of manipulations
-
-    },
-    computed: { // computed properties are cached based on their reactive dependencies
+    computed: {
         CardsFound() {
             return 'Found ' + state.cards.length + ' movies';
         },

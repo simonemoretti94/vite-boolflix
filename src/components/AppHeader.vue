@@ -3,18 +3,13 @@ import { state } from '../state';
 
 export default {
     name: 'AppHeader',
-    //emits: [''],
-    components: { //imported components 
-        //*,
-
-    },
-    data() { //variables, bool, array, objects and so on
+    data() {
 
         return {
             state,
         }
     },
-    methods: { //functions; all kind of manipulations
+    methods: {
         movieSearch(string) {
             //console.log(string);
             const url1 = `https://api.themoviedb.org/3/search/movie?api_key=${state.apiKey}&query=${state.selectedMovie}`;
@@ -34,10 +29,6 @@ export default {
                 console.log('movie search: ', state.cards);
             }, 3000)
         },
-    },
-    computed() { // computed properties are cached based on their reactive dependencies
-        return //example this.value1 + this.value2;
-
     },
 }
 </script>
@@ -97,7 +88,6 @@ header {
     header {
         >.container {
             >h2 {
-                /* width: calc((100% / 12) * 5); */
                 font-size: 90%;
             }
         }
@@ -115,8 +105,6 @@ header {
 
             & input {
                 display: none;
-                /* width: calc((100% / 12) * 5);
-                font-size: small; */
             }
 
             & i#show_icon {
