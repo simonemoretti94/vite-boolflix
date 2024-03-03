@@ -82,8 +82,6 @@ export default {
                         }}</p>
                     </div>
                     <img :src="imgRender(movie)" :alt="movie.original_title ? movie.original_title : movie.original_name">
-                    <!-- <img :src="movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/` + movie.backdrop_path : `./src/assets/img/picture-not-available.jpg`"
-                        :alt="movie.original_title"> -->
                     <h6>{{ h6slice(titleEvaluating(movie)) }}</h6>
                 </div>
             </div>

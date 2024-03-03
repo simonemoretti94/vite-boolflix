@@ -7,6 +7,27 @@ export default {
 
         return {
             state,
+
+            screenX: window.innerWidth,
+            screenY: window.innerHeight,
+        }
+    },
+    watch: {
+        screenX(newVal, oldVal) {
+            //console.log(`screenX changed from ${oldVal} to ${newVal}`);
+            if(newVal > 449){
+                const icon = document.getElementById('show_icon');
+                const input = document.getElementById('header_input');
+                const container =  document.getElementById('header_container');
+
+                icon.classList.remove('d-none');
+
+                input.classList.add('d-none');
+                input.classList.remove('mb-1');
+
+                container.classList.add('flex-row');
+                container.classList.remove('flex-column');
+            }
         }
     },
     methods: {
@@ -29,17 +50,37 @@ export default {
                 //console.log('movie search: ', state.cards);
             }, 3000)
         },
+        iconClick(event){
+            console.log(event.target.id);
+            const icon = document.getElementById('show_icon');
+            const input = document.getElementById('header_input');
+            const container =  document.getElementById('header_container');
+            icon.classList.add('d-none');
+
+            input.classList.remove('d-none');
+            input.classList.add('mb-1');
+
+            container.classList.remove('flex-row');
+            container.classList.add('flex-column');
+        },
+        updateScreenX() {
+            this.screenX = window.innerWidth;
+    }
     },
+    created() {
+        window.addEventListener('resize', this.updateScreenX);
+    },
+
 }
 </script>
 
 <template>
     <header>
-        <div class="container">
+        <div id="header_container" class="container flex-row">
             <h2>boolflix</h2>
-            <input type="text" placeholder="Write here a movie and press enter" v-model="state.selectedMovie"
+            <input id="header_input" class="d-none" type="text" placeholder="Write here a movie and press enter" v-model="state.selectedMovie"
                 @keyup="movieSearch($event.target.value)">
-            <i id="show_icon" class="fa-solid fa-plus-minus" style="color: #ffffff;"></i>
+            <i id="show_icon" class="fa-solid fa-plus-minus" style="color: #ffffff;" ref="show_icon" @click="iconClick($event)" ></i>
         </div>
     </header>
 </template>
@@ -55,7 +96,6 @@ header {
         max-width: 1440px;
         margin: auto;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
 
@@ -68,71 +108,73 @@ header {
         }
 
         & input {
-            width: calc((100% / 12) * 3);
-            /* width: 100%; */
             padding: .3rem;
             border-radius: 8px;
             text-align: center;
             color: rgb(53, 53, 53);
-            font-size: medium;
+            font-size: small;
+            /* display: none; */
         }
 
-        & i#show_icon {
-            display: none;
-        }
-    }
-
-}
-
-@media (max-width: 350px) {
-    header {
-        >.container {
-            >h2 {
-                font-size: 90%;
-            }
-        }
+        /* & i#show_icon {
+            display: block;
+        } */
     }
 }
+    .d-none {
+        display: none;
+    }
 
-@media (max-width: 450px) {
+    .mb-1 {
+        margin-bottom: 1rem;
+    }
+
+    .flex-row {
+        flex-direction: row;
+    }
+
+    .flex-column {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+@media screen and (min-width: 450px){
     header {
         >.container {
+            justify-content: space-between;
+            align-items: center;
             >h2 {
-                width: calc((100% / 12) * 5);
-                font-size: 100%;
-
+                font-size: 110%;
             }
 
             & input {
-                display: none;
+                display: block;
+                width: calc((100% / 12)* 5);
+                font-size: medium;
+                margin-bottom: 0;
             }
 
             & i#show_icon {
-                display: block;
+                display: none;
             }
-        }
-    }
-
-    i#show_icon:active {
-        display: none;
-
-        & header {
-            & .container {
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                >h2 {
-                    color: blue;
-                }
-
-                & input {
-                    display: block;
-                    width: 100%;
-                }
-            }
-
         }
     }
 }
+
+@media screen and (min-width: 758px)  {
+    header {
+        >.container {
+            >h2 {
+                font-size: 150%;
+            }
+
+            & input {
+                width: calc((100% / 12)* 3);
+            }
+        }
+    }
+}
+
+
 </style>
