@@ -92,6 +92,11 @@ export default {
 <style scoped>
 header {
     min-height: 60px;
+    width: 100vw;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
     background: linear-gradient(#232323, #181818, #141414, #181818, #232323);
 
     & .container {
@@ -119,10 +124,6 @@ header {
             font-size: small;
             /* display: none; */
         }
-
-        /* & i#show_icon {
-            display: block;
-        } */
     }
 }
     .d-none {
