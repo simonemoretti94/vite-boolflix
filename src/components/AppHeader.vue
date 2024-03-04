@@ -10,23 +10,24 @@ export default {
 
             screenX: window.innerWidth,
             screenY: window.innerHeight,
+
+            container: null,
+            input: null,
+            icon: null,
         }
     },
     watch: {
         screenX(newVal, oldVal) {
             //console.log(`screenX changed from ${oldVal} to ${newVal}`);
             if(newVal > 449){
-                const icon = document.getElementById('show_icon');
-                const input = document.getElementById('header_input');
-                const container =  document.getElementById('header_container');
 
-                icon.classList.remove('d-none');
+                this.icon.classList.remove('d-none');
 
-                input.classList.add('d-none');
-                input.classList.remove('mb-1');
+                this.input.classList.add('d-none');
+                this.input.classList.remove('mb-1');
 
-                container.classList.add('flex-row');
-                container.classList.remove('flex-column');
+                this.container.classList.add('flex-row');
+                this.container.classList.remove('flex-column');
             }
         }
     },
@@ -51,17 +52,15 @@ export default {
             }, 3000)
         },
         iconClick(event){
-            console.log(event.target.id);
-            const icon = document.getElementById('show_icon');
-            const input = document.getElementById('header_input');
-            const container =  document.getElementById('header_container');
-            icon.classList.add('d-none');
+            //console.log(event.target.id);
 
-            input.classList.remove('d-none');
-            input.classList.add('mb-1');
+            this.icon.classList.add('d-none');
 
-            container.classList.remove('flex-row');
-            container.classList.add('flex-column');
+            this.input.classList.remove('d-none');
+            this.input.classList.add('mb-1');
+
+            this.container.classList.remove('flex-row');
+            this.container.classList.add('flex-column');
         },
         updateScreenX() {
             this.screenX = window.innerWidth;
@@ -69,6 +68,11 @@ export default {
     },
     created() {
         window.addEventListener('resize', this.updateScreenX);
+    },
+    mounted(){
+        this.container =  document.getElementById('header_container');
+        this.input = document.getElementById('header_input');
+        this.icon = document.getElementById('show_icon');
     },
 
 }
