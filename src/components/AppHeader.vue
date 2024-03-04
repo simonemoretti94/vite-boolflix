@@ -118,6 +118,7 @@ header {
         }
 
         & input {
+            width: calc((100% / 12)* 8);
             padding: .3rem;
             border-radius: 8px;
             text-align: center;
@@ -156,8 +157,8 @@ header {
 
             & input {
                 display: block;
-                width: calc((100% / 12)* 5);
-                font-size: medium;
+                width: calc((100% / 12)* 5.5);
+                font-size: small;
                 margin-bottom: 0;
             }
 
@@ -176,7 +177,7 @@ header {
             }
 
             & input {
-                width: calc((100% / 12)* 3);
+                width: calc((100% / 12)* 4);
             }
         }
     }
