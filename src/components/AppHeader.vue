@@ -64,7 +64,7 @@ export default {
         },
         updateScreenX() {
             this.screenX = window.innerWidth;
-    }
+        },
     },
     created() {
         window.addEventListener('resize', this.updateScreenX);
@@ -91,8 +91,9 @@ export default {
 
 <style scoped>
 header {
-    min-height: 60px;
     width: 100vw;
+    min-width: 320px;
+    min-height: 60px;
     position:fixed;
     top: 0;
     left: 0;
