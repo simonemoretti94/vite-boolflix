@@ -74,7 +74,7 @@ export default {
                         <p><span>Lingua originale: </span><span id="language_icon"
                                 v-html="flagIcon(movie.original_language)"></span> {{
                                     movie.original_language ? movie.original_language : 'text not available' }}</p>
-                        <p id="p_rate"><span>Voto: </span>
+                        <p v-if="movie.vote_average" id="p_rate"><span>Voto: </span>
                             <i v-for="n in (Math.ceil(movie.vote_average / 2))"
                             class="fa-solid fa-star" style="color: #ffbd00;" :key="n + 'yellow_star'"></i>
                             <i v-if="(Math.ceil(movie.vote_average / 2)) < 5" v-for="n in (5 - (Math.ceil(movie.vote_average / 2)))"
@@ -166,8 +166,6 @@ export default {
             }
 
             & #p_rate {
-                margin-bottom: .5rem;
-
                 >span {
                     margin-right: .5rem;
                 }
@@ -185,6 +183,7 @@ export default {
             }
 
             & #p_overview {
+                margin-top: .5rem;
                 border: .5px solid white;
                 padding: .2rem;
                 border-radius: 8px;
