@@ -54,6 +54,7 @@ h6#h6_info {
 main {
     min-height: calc(100vh - 65px);
     margin-top: 6rem;
+    margin-bottom: 1rem;
 }
 
 div#loader {
