@@ -178,6 +178,7 @@ header {
 
             & input {
                 width: calc((100% / 12)* 4);
+                font-size: medium;
             }
         }
     }
