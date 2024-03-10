@@ -84,7 +84,7 @@ export default {
             <h2>boolflix</h2>
             <input id="header_input" class="d-none" type="text" placeholder="Write here a movie and press enter" v-model="state.selectedMovie"
                 @keyup="movieSearch($event.target.value)">
-            <i id="show_icon" class="fa-solid fa-plus-minus" style="color: #ffffff;" ref="show_icon" @click="iconClick($event)" ></i>
+            <i id="show_icon" class="fa-regular fa-pen-to-square fa-flip-horizontal fa-lg" style="color: #ffffff;" ref="show_icon" @click="iconClick($event)" ></i>
         </div>
     </header>
 </template>
