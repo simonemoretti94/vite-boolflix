@@ -65,28 +65,32 @@ export default {
 <template>
     <section>
         <div class="container">
-            <div class="row">
+            <div class="row"
+                :class="state.cards.length % 2 != 0 && state.cards.length > 4 ? 'justify-content-start' : 'justify-content-center'">
                 <div v-for="movie in state.cards" class="card col-sm-6 col-md-4 col-lg-3">
                     <div id="hide_content">
                         <p><span>Titolo: </span>{{ titleEvaluating(movie) }}</p>
                         <p><span>Titolo originale: </span>{{ movie.original_title ? movie.original_title : 'text\
-                                                    not available' }}</p>
+                            not available' }}</p>
                         <p><span>Lingua originale: </span><span id="language_icon"
                                 v-html="flagIcon(movie.original_language)"></span> {{
-                                    movie.original_language ? movie.original_language : 'text not available' }}</p>
+                    movie.original_language ? movie.original_language : 'text not available' }}</p>
                         <p v-if="movie.vote_average" id="p_rate"><span>Voto: </span>
-                            <i v-for="n in (Math.ceil(movie.vote_average / 2))"
-                            class="fa-solid fa-star" style="color: #ffbd00;" :key="n + 'yellow_star'"></i>
-                            <i v-if="(Math.ceil(movie.vote_average / 2)) < 5" v-for="n in (5 - (Math.ceil(movie.vote_average / 2)))"
-                            class="fa-solid fa-star" style="color: #ffffff;" :key="n + 'white_star'"></i>
+                            <i v-for="n in (Math.ceil(movie.vote_average / 2))" class="fa-solid fa-star"
+                                style="color: #ffbd00;" :key="n + 'yellow_star'"></i>
+                            <i v-if="(Math.ceil(movie.vote_average / 2)) < 5"
+                                v-for="n in (5 - (Math.ceil(movie.vote_average / 2)))" class="fa-solid fa-star"
+                                style="color: #ffffff;" :key="n + 'white_star'"></i>
                             <span id="span_rate">({{
-                                    movie.vote_average ?
-                                    Math.ceil(movie.vote_average.toFixed(1) / 2) + '/5' : 'no data' }})</span>
+                    movie.vote_average ?
+                        Math.ceil(movie.vote_average.toFixed(1) / 2) + '/5' : 'no data' }})</span>
                         </p>
-                        <p id="p_overview"><span>Overview: </span>{{ movie.overview ? movie.overview : 'text not available'
-                        }}</p>
+                        <p id="p_overview"><span>Overview: </span>{{ movie.overview ? movie.overview : 'text not\
+                            available'
+                            }}</p>
                     </div>
-                    <img :src="imgRender(movie)" :alt="movie.original_title ? movie.original_title : movie.original_name">
+                    <img :src="imgRender(movie)"
+                        :alt="movie.original_title ? movie.original_title : movie.original_name">
                     <h6>{{ h6slice(titleEvaluating(movie)) }}</h6>
                 </div>
             </div>
