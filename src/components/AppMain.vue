@@ -87,6 +87,7 @@ h1 {
 
     >i {
         color: var(--boolflix-header-writing);
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.588);
     }
 }
 
