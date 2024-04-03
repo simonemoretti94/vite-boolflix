@@ -108,4 +108,15 @@ h1 {
         font-size: small;
     }
 }
+
+@media screen and (max-width: 470px) {
+
+    h1 {
+        font-size: 20px;
+
+        >i {
+            font-size: 20px;
+        }
+    }
+}
 </style>
