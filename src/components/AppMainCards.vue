@@ -17,9 +17,7 @@ export default {
                 let tempStr = String(country);
                 tempStr = tempStr.toUpperCase();
                 tempStr = languages.lang[tempStr];
-                tempStr = tempStr.toLowerCase();
-                tempStr = tempStr.split(' ');
-                tempStr = tempStr.join('-');
+                tempStr = tempStr.toLowerCase().split(' ').join('-');
 
                 return `<img width="15" height="15" src="https://img.icons8.com/color/15/${tempStr}.png" alt="${tempStr}"/>`;
             }

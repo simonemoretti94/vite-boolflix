@@ -18,7 +18,6 @@ export default {
     },
     watch: {
         screenX(newVal, oldVal) {
-            //console.log(`screenX changed from ${oldVal} to ${newVal}`);
             if (newVal > 449) {
 
                 this.icon.classList.remove('d-none');
@@ -33,7 +32,6 @@ export default {
     },
     methods: {
         movieSearch(string) {
-            //console.log(string);
             const url1 = `https://api.themoviedb.org/3/search/movie?api_key=${state.apiKey}&query=${state.selectedMovie}`;
             const url2 = `https://api.themoviedb.org/3/search/tv?api_key=${state.apiKey}&query=${state.selectedMovie}`;
 
@@ -42,18 +40,13 @@ export default {
                 state.loadingAPI = true;
             }
             else {
-                //state.FoundLoading = true;
-                state.fetchData(url1);
+                state.cards = [];
                 state.fetchData(url2);
+                state.fetchData(url1);
                 state.showH1 = false;
             }
-
-            setTimeout(() => {
-                //console.log('movie search: ', state.cards);
-            }, 3000)
         },
         iconClick(event) {
-            //console.log(event.target.id);
 
             this.icon.classList.add('d-none');
 
