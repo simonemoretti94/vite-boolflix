@@ -11,6 +11,9 @@ export const state = reactive({
     FoundLoading: true, //return cards array length
     loadingAPI: true, //while true, show a loading icon
 
+    //AppMain variables
+    showH1: false,
+
     //AppHeader variables
     selectedMovie: '',
 

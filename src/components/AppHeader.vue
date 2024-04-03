@@ -19,7 +19,7 @@ export default {
     watch: {
         screenX(newVal, oldVal) {
             //console.log(`screenX changed from ${oldVal} to ${newVal}`);
-            if(newVal > 449){
+            if (newVal > 449) {
 
                 this.icon.classList.remove('d-none');
 
@@ -45,13 +45,14 @@ export default {
                 //state.FoundLoading = true;
                 state.fetchData(url1);
                 state.fetchData(url2);
+                state.showH1 = false;
             }
 
             setTimeout(() => {
                 //console.log('movie search: ', state.cards);
             }, 3000)
         },
-        iconClick(event){
+        iconClick(event) {
             //console.log(event.target.id);
 
             this.icon.classList.add('d-none');
@@ -69,8 +70,8 @@ export default {
     created() {
         window.addEventListener('resize', this.updateScreenX);
     },
-    mounted(){
-        this.container =  document.getElementById('header_container');
+    mounted() {
+        this.container = document.getElementById('header_container');
         this.input = document.getElementById('header_input');
         this.icon = document.getElementById('show_icon');
     },
@@ -82,9 +83,10 @@ export default {
     <header>
         <div id="header_container" class="container flex-row">
             <h2>boolflix</h2>
-            <input id="header_input" class="d-none" type="text" placeholder="Write here a movie and press enter" v-model="state.selectedMovie"
-                @keyup="movieSearch($event.target.value)">
-            <i id="show_icon" class="fa-regular fa-pen-to-square fa-flip-horizontal fa-lg" ref="show_icon" @click="iconClick($event)" ></i>
+            <input id="header_input" class="d-none" type="text" placeholder="Write here a movie and press enter"
+                v-model="state.selectedMovie" @keyup="movieSearch($event.target.value)">
+            <i id="show_icon" class="fa-regular fa-pen-to-square fa-flip-horizontal fa-lg" ref="show_icon"
+                @click="iconClick($event)"></i>
         </div>
     </header>
 </template>
@@ -94,7 +96,7 @@ header {
     width: 100vw;
     min-width: 320px;
     min-height: 60px;
-    position:fixed;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
@@ -130,39 +132,41 @@ header {
         & i#show_icon {
             color: #ffffff;
             text-shadow: 1.5px -1.5px black;
-            filter: drop-shadow( 0 0 1.5px rgba(255, 255, 255, 0.659));
+            filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.659));
         }
 
         & i#show_icon:hover {
             color: #ffffff;
             text-shadow: 1.5px -1.5px black;
-            filter: drop-shadow( 0 0 1.5px #ff0000c4);
+            filter: drop-shadow(0 0 1.5px #ff0000c4);
         }
     }
 }
-    .d-none {
-        display: none;
-    }
 
-    .mb-1 {
-        margin-bottom: 1rem;
-    }
+.d-none {
+    display: none;
+}
 
-    .flex-row {
-        flex-direction: row;
-    }
+.mb-1 {
+    margin-bottom: 1rem;
+}
 
-    .flex-column {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.flex-row {
+    flex-direction: row;
+}
 
-@media screen and (min-width: 450px){
+.flex-column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 450px) {
     header {
         >.container {
             justify-content: space-between;
             align-items: center;
+
             >h2 {
                 font-size: 110%;
             }
@@ -181,7 +185,7 @@ header {
     }
 }
 
-@media screen and (min-width: 758px)  {
+@media screen and (min-width: 758px) {
     header {
         >.container {
             >h2 {
@@ -195,6 +199,4 @@ header {
         }
     }
 }
-
-
 </style>

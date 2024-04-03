@@ -22,7 +22,15 @@ export default {
         setTimeout(() => {
             state.FoundLoading = false;
         }, 4000);
-    }
+
+        if (state.cards.length == 0 && state.loadingAPI == false) {
+            setTimeout(() => {
+
+                state.showH1 = true;
+
+            }, 3000);
+        }
+    },
 }
 </script>
 
@@ -37,6 +45,7 @@ export default {
                     <p>Loading content, please wait</p>
                 </div>
                 <AppMainCards></AppMainCards>
+                <h1 v-if="state.showH1">Sorry, content not found <i class="fa fa-cloud"></i></h1>
             </div>
         </div>
     </main>
@@ -66,6 +75,18 @@ div#loader {
         color: white;
         font-size: medium;
         margin-left: .3rem;
+    }
+}
+
+h1 {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: skewX(-5deg);
+    margin: auto auto auto 2rem;
+    text-shadow: 0 0 1.5px black;
+
+    >i {
+        color: var(--boolflix-header-writing);
     }
 }
 
